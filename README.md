@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# amplify-react-graphql
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Purpose
+The purpose of this project was to learn how to deploy a full stack notes app on AWS.
+## Intention
+AWS is an important tool that many companies use, and knowing how to use it is a valuable skill for any developer to have. 
 
-## Available Scripts
+My goal wasn't to develop an overly complicated web app, which is why I stuck to a basic CRUD notes app. I did implement an image storage / retrieval feature as well. 
 
-In the project directory, you can run:
+## Problems and Solutions
 
-### `npm start`
+### Hosting
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Problem:** Hosting on AWS required understanding their tools and knowing which one to go with
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Solution:** I went with AWS Amplify. It provides a Git-based CI/CD workflow for building, deploying, and hosting single-page web applications or static sites with serverless backends. It also supports continuous deployment which was helpful
 
-### `npm test`
+**Takeaway:** I know know how to deploy a web app to AWS Amplify
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Authentication
 
-### `npm run build`
+**Problem:** A basic CRUD note taking app needs a way to save a specific users' notes. I needed to add a sign in, up feature which requires authentication
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Solution:** Sticking with AWS, I authenticated a user using the Amplify CLI, and leaveraged Amazon Cognito, which managed user identities. The Amplify UI component library helped creating an entire user authentication workflow, from signing up, verifying emails, reseting passwrods, and signing in
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Takeaway:** I know how to authenticate users with just a few lines of code now
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Databse and Storage
 
-### `npm run eject`
+**Problem:** A user's notes needed to be saved somewhere, so I needed to use an API which is backed by some database.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Solution:** Again, sticked with AWS, I used a GraphQL API that uses AWS AppSync which is backed by Amazon DynamoDB. Finally, I added storage for pictures using Amazon S3
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Takeaway:** I can now build a fully functioning CRUD app, hosted entirely on AWS, with authentication and storage features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Additional
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A deployed version of the application can be found [here](https://main.d2sfonb0rgw1sr.amplifyapp.com/)
